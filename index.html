@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><b>Piston</b></title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(-45deg, #380F17, #8F0B13, #F2A44C, #252B2B, #4C4F54);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.blur {
+    filter: blur(5px);
+}
+
+/* Logo */
+.logo {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    letter-spacing: 4px;
+    color: black;
+    z-index: 1000;
+}
+
+/* Hamburger */
+.menu-btn {
+    font-size: 28px;
+    cursor: pointer;
+    padding: 15px;
+    position: fixed;
+    top: 10px;
+    left: 15px;
+    color: black;
+    z-index: 1000;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(#660F24, #2B0013);
+    padding-top: 80px;
+    transition: 0.4s ease;
+    box-shadow: 3px 0 15px black;
+    z-index: 999;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #FFDBE8;
+    font-size: 18px;
+}
+
+.sidebar a:hover {
+    background: #F24455;
+    color: white;
+}
+
+/* Main */
+.main {
+    padding: 120px 20px;
+}
+
+/* Game Cards */
+.games {
+    max-width: 900px;
+    margin: auto;
+}
+
+.card {
+    background: linear-gradient(145deg, #660F24, #2B0013);
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px black;
+    color: white;
+    text-align: center;
+}
+
+.card button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    background: #F24455;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: #FF94B2;
+    color: black;
+}
+
+/* Keep layout SAME on mobile */
+@media (max-width: 768px) {
+    .main {
+        padding: 120px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="logo">PISTON</div>
+
+<div class="sidebar" id="sidebar">
+    <a href="#">Home</a>
+    <a href="#">All Games</a>
+    <a href="#">Mods</a>
+    <a href="#">About</a>
+</div>
+
+<div class="main" id="mainContent">
+    <div class="games">
+        <div class="card">
+            <h3>Game 1</h3>
+            <p>Coming Soon</p>
+            <button>Play</button>
+        </div>
+
+        <div class="card">
+            <h3>Game 2</h3>
+            <p>Coming Soon</p>
+            <button>Play</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("mainContent").classList.toggle("blur");
+}
+</script>
+
+</body>
+</html>
